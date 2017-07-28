@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+}
+
+.body {
+  display: grid;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+}
+
+
+@media all and (max-width: 599px) {
+  .body {
+    grid-template-rows:
+      [nav-top]
+      min-content
+      [nav-bottom next-top]
+      min-content
+      [next-bottom map-top]
+      min-content
+      [map-bottom desc-top]
+      min-content
+      [desc-bottom list-top]
+      auto
+      [list-top];
+
+    grid-template-rows:
+      [nav-top]
+      -webkit-min-content
+      [nav-bottom next-top]
+      -webkit-min-content
+      [next-bottom map-top]
+      -webkit-min-content
+      [map-bottom desc-top]
+      -webkit-min-content
+      [desc-bottom list-top]
+      auto
+      [list-bottom];
+
+    grid-template-columns:
+      [
+        desc-left
+        list-left
+        map-left
+        nav-left
+        next-left
+      ]
+      auto
+      [
+        desc-right
+        list-right
+        map-right
+        nav-right
+        next-right
+      ]
+  }
+}
+
+@media all and (min-width: 600px) {
+  .body {
+    height: 100vh;
+
+    grid-template-rows:
+      [nav-top]
+      min-content
+      [nav-bottom map-top next-top]
+      min-content
+      [next-bottom desc-top]
+      min-content
+      [desc-bottom list-top]
+      auto
+      [list-bottom map-bottom];
+
+    grid-template-rows:
+      [nav-top]
+      -webkit-min-content
+      [nav-bottom map-top next-top]
+      -webkit-min-content
+      [next-bottom desc-top]
+      -webkit-min-content
+      [desc-bottom list-top]
+      auto
+      [list-bottom map-bottom];
+
+    grid-template-columns:
+      [nav-left list-left desc-left next-left]
+      calc((100vw / 12) * 4)
+      [list-right desc-right next-right map-left]
+      calc((100vw / 12) * 8)
+      [map-right nav-right];
+  }
+}
+
+.body > div {
+  padding: 8px;
+}
+
+.next {
+  background-color:   floralwhite;
+  grid-column-end:    next-right;
+  grid-column-start:  next-left;
+  grid-row-end:       next-bottom;
+  grid-row-start:     next-top;
+}
+
+.map {
+  background-color:   coral;
+  grid-column-end:    map-right;
+  grid-column-start:  map-left;
+  grid-row-end:       map-bottom;
+  grid-row-start:     map-top;
+  text-align:         center;
+}
+
+.desc {
+  background-color:   lightgoldenrodyellow;
+  grid-column-end:    desc-right;
+  grid-column-start:  desc-left;
+  grid-row-end:       desc-bottom;
+  grid-row-start:     desc-top;
+}
+
+.nav {
+  background-color:   mediumturquoise;
+  grid-column-end:    nav-right;
+  grid-column-start:  nav-left;
+  grid-row-end:       nav-bottom;
+  grid-row-start:     nav-top;
+}
+
+.list {
+  background-color:   moccasin;
+  grid-column-end:    list-right;
+  grid-column-start:  list-left;
+  grid-row-end:       list-bottom;
+  grid-row-start:     list-top;
+  overflow-y:         auto;
+}
